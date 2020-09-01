@@ -1,3 +1,35 @@
+.entry-name {
+    font-size: calc(20px + 2vmin);
+}
+
+.tap-number {
+    font-size: calc(20px + 2vmin);
+    font-weight: bold;
+    border-right: solid;
+    border-width: 1px;
+}
+
+.tap-entry {
+    border: solid;
+    border-width: 1px;
+    margin: 5px;
+}
+
+.beer-description {
+    font-size: calc(8px + 2vmin);
+    font-style: italic;
+}
+
+.brewed-on, .kegged-on {
+    font-size: calc(6px + 2vmin);
+    font-style: italic;
+}
+
+.beer-stat {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
 .App {
   text-align: center;
 }
