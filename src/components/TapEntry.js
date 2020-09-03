@@ -9,11 +9,18 @@ function TapEntry() {
   const keggedOn = "Feb. 10, 2020";
   const kegNo = 1;
   const tapNo = 1;
-
+  let tapText = "Tap";
+  if (!tapNo) {
+    tapText = "Upcoming";
+  }
   return (
     <div className="container tap-entry">
       <div className="row">
-        <div className="col-md-1 tap-number my-auto">{tapNo}</div>
+        <div className="col-md-1 tap-number my-auto">
+          <span className="tap-no-text">{tapText}</span>
+          <br />
+          {tapNo}
+        </div>
         <div className="col-md-9">
           <p className="entry-name">{beerName}</p>
           <p className="beer-description">
