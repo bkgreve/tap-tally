@@ -2,17 +2,18 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import TapEntry from "./components/TapEntry";
+import Header from "./Header";
 
 function TapTally() {
   return (
     <div className="App">
-      <header className="App-header">
-        Tap Tally: Digital Tap List and Keg Level Monitor
+      <div className="App-header">
+        <Header />
         <TapEntry />
         <TapEntry />
         <TapEntry />
         <TapEntry />
-      </header>
+      </div>
     </div>
   );
 }
