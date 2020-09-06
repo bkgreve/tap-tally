@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-flask": ".venv/bin/flask run --no-debugger"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +36,6 @@
   },
   "devDependencies": {
     "standardx": "^5.0.0"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

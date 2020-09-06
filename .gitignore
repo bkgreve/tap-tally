@@ -25,3 +25,4 @@ yarn-error.log*
 # python
 /tap-venv
 db.sqlite3
+.venv

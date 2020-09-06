@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
@@ -5,16 +6,33 @@ import TapEntry from "./components/TapEntry";
 import Header from "./Header";
 
 function TapTally() {
+  const [tapEntries, setTapEntries] = useState([]);
+  const [headerInfo, setHeaderInfo] = useState({});
+
+  useEffect(() => {
+    fetch("/api/entries")
+      .then((res) => res.json())
+      .then((data) => {
+        setTapEntries(data.entries);
+      });
+    fetch("/api/header-info")
+      .then((res) => res.json())
+      .then((data) => {
+        setHeaderInfo(data.headerInfo);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <div className="App-header">
-        <Header />
-        <TapEntry />
-        <TapEntry />
-        <TapEntry />
-        <TapEntry />
+    <>
+      <div className="App">
+        <div className="App-header">
+          <Header data={headerInfo} />
+          {tapEntries.map((entry, i) => (
+            <TapEntry key={i} data={entry} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
