@@ -55,3 +55,7 @@ your favorite editor, save, and then refresh the page to see your changes.
 
 Then, navigating to `http://localhost` (once the Docker containers are running) should
 show your tap list!
+
+## Screenshots
+
+![image](https://user-images.githubusercontent.com/39656757/92596320-a6186980-f273-11ea-9d93-0ce911e2e213.png)
