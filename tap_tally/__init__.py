@@ -12,7 +12,8 @@ def get_tap_entries():
         beer_data = json.load(f)
     entries = []
     for entry in beer_data:
-        entries.append(entry)
+        if entry.get('visible', False):
+            entries.append(entry)
     return {
         'entries': entries
     }
