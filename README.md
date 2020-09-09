@@ -22,7 +22,7 @@ an Nginx image, which also includes the static assets.
 ## Usage
 
 Currently, all beer/tap data are stored in `data/beers.json` (_a future release will explore alternative
-data storage methods). This file has the following structure:
+data storage methods_). This file has the following structure:
 ```json
 [
   {
@@ -52,3 +52,6 @@ data storage methods). This file has the following structure:
 Currently, all objects in the above array will be loaded and passed to the front-end
 for display. An example file is included in this repository: simply edit the file with
 your favorite editor, save, and then refresh the page to see your changes.
+
+Then, navigating to `http://localhost` (once the Docker containers are running) should
+show your tap list!
