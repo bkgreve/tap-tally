@@ -26,4 +26,5 @@ yarn-error.log*
 /tap-venv
 db.sqlite3
 .venv
-/data
+
+beers.json
