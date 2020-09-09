@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  flask-api:
+    image: tap_tally:0.1
+    environment:
+      - FLASK_APP=tap_tally
+      - FLASK_ENV=development
+    ports:
+      - "5000"
+    volumes:
+      - ./data/:/usr/src/app/data/
+
+  nginx-proxy:
+    image: my-nginx:0.1
+    ports:
+      - "80:80"
