@@ -2,7 +2,8 @@ version: '2'
 
 services:
   flask-api:
-    image: tap_tally:0.1
+    build:
+      context: .
     environment:
       - FLASK_APP=tap_tally
       - FLASK_ENV=development
@@ -12,6 +13,8 @@ services:
       - ./data/:/usr/src/app/data/
 
   nginx-proxy:
-    image: my-nginx:0.1
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
     ports:
       - "80:80"
