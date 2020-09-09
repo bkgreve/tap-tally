@@ -1,4 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Warnes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+.app-header-bar {
+     top: 0;
+    color: #C6CDC7;
+}
+
+.app-name-header {
+    font-style: italic;
+    font-size: calc(9px + 2vmin);
+}
+
+.app-brewery-header {
+    font-weight: bold;
+    font-size: calc(12px + 2vmin);
+}
+
+.keg-temp-header {
+    font-size: calc(9px + 2vmin);
+}
+
+.entry-name {
+    font-size: calc(20px + 2vmin);
+    margin-bottom: 1px;
+    padding-bottom: 0px;
+    font-family: Montoon;
+    color: #f2f3f4;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px red, 0 0 20px red, 0 0 25px red, 0 0 30px red, 0 0 35px red;
+}
+
+.tap-no-text {
+    font-size: calc(12px + 2vmin);
+}
+
+.tap-number {
+    font-size: calc(20px + 2vmin);
+    font-weight: bold;
+    border-right: solid;
+    border-width: 1px;
+    border-color: red;
+}
+
+.tap-entry {
+    border: solid;
+    border-width: 1px;
+    margin: 5px;
+    border-radius: 50px;
+    border-color: red;
+}
+
+.beer-description {
+    font-size: calc(6px + 2vmin);
+    font-style: italic;
+    color: orange;
+}
+
+.brewed-on, .kegged-on {
+    font-size: calc(6px + 2vmin);
+    font-style: italic;
+}
+
+.beer-stat {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+}
+
 .App {
+  top: 0;
   text-align: center;
 }
 
@@ -14,12 +83,12 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
   font-size: calc(10px + 2vmin);
   color: white;
 }

@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  flask-api:
+    build:
+      context: .
+    environment:
+      - FLASK_APP=tap_tally
+      - FLASK_ENV=development
+    ports:
+      - "5000"
+    volumes:
+      - ./data/:/usr/src/app/data/
+
+  nginx-proxy:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "80:80"
