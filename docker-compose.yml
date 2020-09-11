@@ -18,3 +18,5 @@ services:
       dockerfile: nginx/Dockerfile
     ports:
       - "80:80"
+    volumes:
+      - ./data/images:/var/www/media

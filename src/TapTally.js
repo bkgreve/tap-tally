@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import TapEntry from "./components/TapEntry";
-import Header from "./Header";
+import Header from "./components/Header";
 
 function TapTally() {
   const [tapEntries, setTapEntries] = useState([]);
@@ -25,7 +24,7 @@ function TapTally() {
   return (
     <>
       <div className="App">
-        <div className="App-header">
+        <div className="App-body">
           <Header data={headerInfo} />
           {tapEntries.map((entry, i) => (
             <TapEntry key={i} data={entry} />
