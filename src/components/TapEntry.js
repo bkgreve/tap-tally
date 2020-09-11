@@ -1,4 +1,7 @@
 import React from "react";
+import BeerInfo from "./BeerInfo";
+import BeerLogo from "./BeerLogo";
+import TapEntryFooter from "./TapEntryFooter";
 
 function TapEntry(props) {
   const data = props.data;
@@ -7,6 +10,7 @@ function TapEntry(props) {
   if (!tapNo) {
     tapText = "TBD";
   }
+  const hasImage = data.image;
   return (
     <div className="container tap-entry">
       <div className="row">
@@ -18,16 +22,9 @@ function TapEntry(props) {
         <div className="col-md-9">
           <p className="entry-name">{data.beerName}</p>
           <p className="beer-description">{data.beerDescription}</p>
-          <div className="row">
-            <div className="col-md-6 brewed-on">Brewed on: {data.brewedOn}</div>
-            <div className="col-md-6 kegged-on">Kegged on: {data.keggedOn}</div>
-          </div>
+          <TapEntryFooter data={data} />
         </div>
-        <div className="col-md-2 beer-stats my-auto">
-          <p className="beer-stat">ABV: {data.alcByVol}%</p>
-          <p className="beer-stat">SRM: {data.beerSRM}</p>
-          <p className="beer-stat">IBU: {data.beerIBU}</p>
-        </div>
+        {hasImage ? <BeerLogo name={data.image} /> : <BeerInfo data={data} />}
       </div>
     </div>
   );

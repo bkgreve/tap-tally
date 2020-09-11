@@ -13,6 +13,11 @@ def get_tap_entries():
     entries = []
     for entry in beer_data:
         if entry.get('visible', False):
+            image_name = entry.get('image', False)
+            if image_name:
+                image_exists = os.path.exists(f"/usr/src/app/data/images/{image_name}")
+                if not image_exists:
+                    entry['image'] = None
             entries.append(entry)
     return {
         'entries': entries
