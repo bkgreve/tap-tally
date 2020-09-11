@@ -9,7 +9,8 @@
     "keggedOn": "Sep. 4, 2020",
     "kegNo": 1,
     "beerDescription": "Beer description here.",
-    "visible": true
+    "visible": true,
+    "image": "image-name.png"
   },
   {
     "tapNo": null,
