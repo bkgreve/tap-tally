@@ -25,4 +25,9 @@ def create_app(test_config=None):
     from .api import api as api_blueprint
     app.register_blueprint(api_blueprint, url_prefix='/api')
 
+    from .control_center import control_center as control_blueprint
+    app.register_blueprint(
+        control_blueprint, url_prefix='/control-center'
+    )
+
     return app
