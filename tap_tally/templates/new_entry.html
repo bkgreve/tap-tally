@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h3>Add New Entry</h3>
+  <form id="new-entry-form" role="form" action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class='row'>
+      <div class='col-md-12'>
+      {{ form.name.label }}:<br>
+      {{ form.name(size=50) }}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-12'>
+        {{ form.description.label }}:<br>
+        {{ form.description(cols=50, rows=4) }}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-12'>
+        {{ form.notes.label }}:<br>
+        {{ form.notes(cols=50, rows=4) }}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-3'>
+        {{ form.brewed_on.label }}
+      </div>
+      <div class='col-md-3'>
+        {{ form.kegged_on.label }}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-3'>
+        {{ form.brewed_on(size=10) }}
+      </div>
+      <div class='col-md-3'>
+        {{ form.kegged_on(size=10) }}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-2'>
+        {{ form.alc_by_vol.label }}:
+        {{ form.alc_by_vol(size=2) }}
+      </div>
+      <div class='col-md-2'>
+        {{ form.srm.label }}:
+        {{ form.srm(size=2) }}
+      </div>
+      <div class='col-md-2'>
+        {{ form.ibu.label }}:
+        {{ form.ibu(size=2) }}
+      </div>
+      <div class='col-md-6'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-3'>
+        {{ form.tap_number.label }}
+        {{ form.tap_number(size=2) }}
+      </div>
+      <div class='col-md-3'>
+        {{ form.keg_no.label }}
+        {{ form.keg_no(size=2) }}
+      </div>
+      <div class='col-md-6'>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-12'>
+        {{ form.visible() }} {{ form.visible.label }}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-4'>
+        {{ form.image.label }} {{ form.image() }}
+      </div>
+      <div class='col-md-3'>{{ form.submit() }}</div>
+      <div class="col-md-6"></div>
+    </div>
+  </form>
+
+  {% if form.errors %}
+  {{ form.errors }}
+  {% endif %}
+
+</div>
+{% endblock %}

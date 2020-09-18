@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+{% set active_page = "dashboard" %}
+
+{% block title %}Tap Tally Control Center{% endblock %}
+    
+{% block navbar %}
+<div class="navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Tap Tally: Control Center</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="{{ active if active_page == 'dashboard' else '' }}">
+        <a href="{{ url_for('control_center.control_dashboard') }}">
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('control_center.new_entry') }}">
+          Add New Entry
+        </a>
+      </li>
+      <li><a href="#">Calculators</a></li>
+      <li><a href="#">Recipes</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
