@@ -2,7 +2,8 @@ import datetime as datetime
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, IntegerField, \
-    DecimalField, DateField, TextAreaField, BooleanField
+    DateField, DecimalField, TextAreaField, BooleanField, \
+    SelectField
 from flask_wtf.file import FileField
 from wtforms.validators import DataRequired, Optional
 
@@ -11,7 +12,7 @@ class TapEntryForm(FlaskForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if not self.brewed_on.data:
-            self.brewed_on.data = datetime.date.today()
+            self.brewed_on.data = datetime.datetime.today()
 
     name = StringField('Beer Name',
                        validators=[DataRequired()]
@@ -26,7 +27,7 @@ class TapEntryForm(FlaskForm):
     srm = IntegerField('SRM',
                        validators=[Optional()]
                        )
-    ibu = IntegerField('IBU',
+    ibu = DecimalField('IBU',
                        validators=[Optional()]
                        )
     keg_no = IntegerField('Keg Number',
@@ -46,12 +47,15 @@ class TapEntryForm(FlaskForm):
                           )
     brewed_on = DateField("Brewed on Date",
                           format="%m/%d/%Y",
-                          validators=[DataRequired()]
+                          validators=[DataRequired()],
                           )
     kegged_on = DateField("Kegged on Date",
                           format="%m/%d/%Y",
                           validators=[Optional()]
                           )
     submit = SubmitField('Add Entry')
-    
-    
+
+
+class SelectEntries(FlaskForm):
+    visible_entries = SelectField()
+    submit = SubmitField('View/Edit Entry')
