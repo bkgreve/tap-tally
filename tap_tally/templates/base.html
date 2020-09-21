@@ -2,7 +2,7 @@
 {% set active_page = "dashboard" %}
 
 {% block title %}Tap Tally Control Center{% endblock %}
-    
+
 {% block navbar %}
 <div class="navbar-inverse">
   <div class="container-fluid">
@@ -25,4 +25,17 @@
     </ul>
   </div>
 </div>
+
+<!-- Show flashed messages below nav bar -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-info alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
 {% endblock %}
