@@ -15,12 +15,15 @@ def create_app(test_config=None):
         static_folder='flask_static/'
     )
 
+    instance_path = app.instance_path
+    data_path = instance_path.replace('instance', 'data')
     app.config.from_mapping(
         SECRET_KEY=os.getenv('FLASK_SECRET_KEY', 'changeme'),
         SQLALCHEMY_DATABASE_URI=os.getenv(
             'SQLALCHEMY_DATABASE_URI', 'sqlite:////tmp/tap-tally.db'
         ),
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        UPLOAD_FOLDER=data_path,
     )
 
     if test_config is None:

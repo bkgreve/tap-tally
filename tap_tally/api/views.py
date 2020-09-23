@@ -27,7 +27,7 @@ def get_tap_entries():
             "keggedOn": kegged,
             "kegNo": entry.keg_no,
             "beerDescription": entry.description,
-            "image": False
+            "image": entry.image,
         }
         entries.append(display_entry)
     return {

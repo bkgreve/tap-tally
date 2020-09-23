@@ -1,6 +1,8 @@
-import logging
+import logging, os
 
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, \
+    current_app
+from werkzeug.utils import secure_filename
 
 from . import control_center
 from .forms import TapEntryForm, SelectEntries
@@ -25,14 +27,24 @@ def control_dashboard():
 
 @control_center.route('/new-entry', methods=['POST', 'GET'])
 def new_entry():
-    """Creates new entry"""
+    """Creates new entry """
     form = TapEntryForm()
     entry = TapEntry()
     if request.method == 'POST' and form.validate():
         form.populate_obj(entry)
+        # Nginx is serving images, so only need to save the
+        # image name (str) in db
+        entry.image = None
+        if form.image.data:
+            file = form.image.data
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(
+                current_app.config['UPLOAD_FOLDER'], filename)
+            )
+            entry.image = filename
         db.session.add(entry)
         db.session.commit()
-        flash(f"{form.name.data} added.")
+        flash(f"{form.name.data} has been added.")
         return redirect(url_for('control_center.new_entry'))
     return render_template('entry.html',
                            title='Add New Entry',
